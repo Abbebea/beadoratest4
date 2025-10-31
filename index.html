@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beadora – Armband & Smycken</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffe6f2; /* Ljusrosa bakgrund */
+      color: #333;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #222;
+      color: #fff;
+      padding: 1rem;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .menu-btn {
+      cursor: pointer;
+      width: 30px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .menu-btn span {
+      display: block;
+      height: 4px;
+      background-color: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    nav {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    nav a {
+      padding: 1rem;
+      text-decoration: none;
+      color: #333;
+      border-bottom: 1px solid #ddd;
+    }
+    nav a:hover {
+      background-color: #eee;
+    }
+    section {
+      padding: 2rem;
+    }
+    .hidden {
+      display: none;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .product {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .product img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 250px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #222;
+      color: #fff;
+      margin-top: 2rem;
+    }
+    .product-name {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    form input, form textarea, form button {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    form button {
+      background-color: #222;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Beadora</div>
+    <div class="menu-btn" id="menu-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="menu">
+      <a href="#" data-section="armband">Armband</a>
+      <a href="#" data-section="special">Designa själv</a>
+      <a href="#" data-section="kontakt">Kontakta oss</a>
+      <a href="#" data-section="order">Lägg Order</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="armband">
+      <h2>Våra Armband</h2>
+      <div class="product-grid">
+        <div class="product">
+          <div class="product-name">Rosa Pärla</div>
+          <img src="81d733ba-f258-47bd-969c-51448755dc7e.JPG" alt="Armband 1">
+          <p>Enkel och stilren design med pärlor.</p>
+          <p><strong>Pris:</strong> 20 kr</p>
+        </div>
+        <div class="product">
+          <div class="product-name">Färgstark Charm</div>
+          <img src="4076b9c3-9bb2-46eb-8edb-704e065ad0a0.JPG" alt="Armband 2">
+          <p>Färgglatt armband med berlocker.</p>
+          <p><strong>Pris:</strong> 20 kr</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="special" class="hidden">
+      <h2>Designa Ditt Eget Armband</h2>
+      <p>Vill du ha något unikt? Mejla oss din idé, färgval eller bild på designen du vill ha!</p>
+      <p><strong>Obs:</strong> Egen design kostar +50 kr.</p>
+      <div class="product-grid">
+        <div class="product">
+          <div class="product-name">Din Egen Design</div>
+          <img src="https://via.placeholder.com/250x150?text=Din+Design" alt="Specialdesign exempel">
+          <p>Ladda upp din egen bild här när du vill ändra design.</p>
+          <p><strong>Startpris:</strong> 20 kr + tillägg för design</p>
+        </div>
+      </div>
+      <p>📧 Skicka din designidé till: <a href="mailto:info@beadora.se">info@beadora.se</a></p>
+    </section>
+
+    <section id="kontakt" class="hidden">
+      <h2>Kontakta Oss</h2>
+      <p>📞 Telefon: 076-898-28-88</p>
+      <p>📧 E-post: info@beadora.se</p>
+      <p>Instagram: Beadora88</p>
+    </section>
+
+    <section id="order" class="hidden">
+      <h2>Lägg Din Order</h2>
+      <form action="https://formspree.io/f/mjkpbkvg" method="POST">
+        <label>Namn:</label>
+        <input type="text" name="name" required>
+
+        <label>Adress:</label>
+        <input type="text" name="address" required>
+
+        <label>Produkter:</label>
+        <textarea name="products" placeholder="Vilka armband vill du beställa?" required></textarea>
+
+        <button type="submit">Skicka Order</button>
+      </form>
+      <p>Alternativt kan du skicka din order via Instagram: <a href="https://instagram.com/messages/t/Beadora88" target="_blank">DM oss</a></p>
+      <p>Skicka via WhatsApp: <a href="https://wa.me/46761234567" target="_blank">Skicka meddelande</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Beadora – Handgjorda armband med kärlek</p>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    const sections = document.querySelectorAll('main section');
+
+    menuBtn.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = link.getAttribute('data-section');
+        sections.forEach(sec => sec.classList.add('hidden'));
+        document.getElementById(target).classList.remove('hidden');
+        menu.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
